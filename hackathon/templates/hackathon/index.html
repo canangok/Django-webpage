@@ -1,0 +1,125 @@
+{% extends 'hackathon/layout.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+
+{% include "hackathon/header.html" %}
+{% include "hackathon/main.html" %}
+{% include "hackathon/tech.html" %}
+{% include "hackathon/prize.html" %}
+{% include "hackathon/spons.html" %}
+{% include "hackathon/program.html" %}
+
+{% include "hackathon/committee.html" %}
+{% include "hackathon/sss.html" %}
+
+<!-- program -->
+
+<!-- İLETİŞİM -->
+<section class="contact padding-120" id="başvuru">
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-sm-12 col-xs-12">
+
+      <div class="contact-form">
+         {% if hack.form_active %}
+        <h3>Başvur</h3>
+
+        <form class="col col2 contact-form" method="POST" action="send_mail_hackathon/">
+          {% csrf_token %}
+
+          <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <input type="text" name="name" placeholder="Full Name" class="contact-input">
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <input type="email" name="from_email" placeholder="Email Address" class="contact-input">
+            </div>
+          </div><!-- row -->
+          <input type="text" name="subject" placeholder="Subject" class="contact-input">
+
+          <textarea rows="5" name=message class="contact-input">Message</textarea>
+          <input type="submit" name="submit" value="Gönder" class="contact-submit">
+        </form>
+          {% else %}
+          <p><b>BAŞVURUNUZ İÇİN TEŞEKKÜR EDERİZ.</b></p>
+          {% endif %}
+      </div>
+
+    </div>
+    <div class="col-md-4 col-sm-12 col-xs-12">
+      <div class="contact-info">
+        <h3>İletİşİm</h3>
+        <ul class="info">
+
+          <li>
+            <div class="icon flaticon-phone-call"></div>
+            <div class="content">
+              <p>{{hack.phone}}</p>
+              <p></p>
+            </div>
+          </li>
+          <li>
+            <div class="icon flaticon-message"></div>
+            <div class="content">
+
+              <p>{{hack.email}}</p>
+            </div>
+          </li>
+        </ul>
+
+      </div><!-- contact-info -->
+    </div>
+  </div><!-- row -->
+</div><!-- container -->
+</section>
+
+
+
+<!-- Speakers start here -->
+
+<!-- Speakers end here -->
+
+<!-- sık sorulan sorular -->
+
+
+<!-- ULAŞIM-->
+<section class="travel travel-six padding-120" id="ulaşım">
+  <div class="container">
+    <div class="section-header text-center">
+      <h3>ULAŞIM BİLGİLERİ</h3>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="travel-information">
+          <div class="info-item first">
+            <div class="icon flaticon-signs-1"></div>
+            <div class="details">
+              <h4>ETKİNLİK ALANI ADRESİ</h4>
+              <p>{{hack.address}} </p>
+            </div>
+          </div><!-- info-item -->
+          <div class="info-item second">
+            <div class="icon flaticon-transport"></div>
+            <div class="details">
+              <h4>ulaşım</h4>
+              <p>{{hack.directions}}</p>
+            </div>
+          </div><!-- info-item -->
+
+        </div><!-- travel-information -->
+      </div>
+      <div class="col-md-6">
+        <div id="map_canvas" class="travel-map">
+          <iframe style="width:100%;height:100%;" class="map" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?hl=en&q={{hack.latitude}},{{hack.longitude}}&ie=UTF8&t=roadmap&z=15&iwloc=B&output=embed"></iframe>
+        </div><!-- travel-map -->
+      </div>
+    </div>
+  </div><!-- container -->
+</section><!-- travel -->
+<!-- Travel end here -->
+
+
+{% endblock %}

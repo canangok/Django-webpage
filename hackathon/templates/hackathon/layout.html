@@ -1,0 +1,103 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>hackathon</title>
+
+
+     <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i%7CPoppins:300,400,500,600,700" rel="stylesheet">
+
+    <!-- Bootstrap -->
+
+    <link rel="stylesheet" href='{% static "assets/css/bootstrap.min.css" %}'>
+
+    <!-- Font-Awesome -->
+    <link rel="stylesheet" href='{% static "assets/css/font-awesome.min.css" %}'>
+    <!-- Flat icon -->
+    <link href='{% static "assets/flaticon/flaticon.css" %}' rel="stylesheet">
+
+    <!-- Swiper -->
+    <link href='{% static "assets/css/swiper.min.css" %}' rel="stylesheet">
+
+    <!-- Lightcase -->
+    <link href='{% static "assets/css/lightcase.css" %}' rel="stylesheet">
+
+    <!-- quick-view -->
+    <link href='{% static "assets/css/quick-view.css" %}' rel="stylesheet">
+
+    <!-- nstSlider -->
+    <link href='{% static "assets/css/jquery.nstSlider.css" %}' rel="stylesheet">
+
+    <!-- flexslider -->
+    <link href='{% static "assets/css/flexslider.css" %}' rel="stylesheet">
+
+    <!-- banner-bg -->
+    <link href='{% static "assets/css/banner-bg.css" %}' rel="stylesheet">
+
+    <!-- Style -->
+    <link href='{% static "assets/css/style.css" %}' rel="stylesheet">
+
+    <!-- Responsive -->
+    <link href='{% static "assets/css/responsive.css" %}' rel="stylesheet">
+    <link href='{% static "assets/css/custom.css" %}' rel="stylesheet">
+
+
+  </head>
+  <body>
+
+    {% block content %}
+    {% endblock %}
+
+    {% include "hackathon/footer.html" %}
+
+    <script  type="text/javascript" src='{%static "assets/js/jquery-3.1.1.min.js" %}'></script>
+    <script  type="text/javascript" src='{%static "assets/js/jquery-migrate-1.4.1.min.js" %}'></script>
+
+    <!-- Bootstrap -->
+    <script type="text/javascript" src='{%static "assets/js/bootstrap.min.js" %}' ></script>
+
+    <!-- Coundown -->
+
+    <!--Swiper-->
+    <script type="text/javascript" src='{%static "assets/js/swiper.jquery.min.js" %}'></script>
+
+    <!--Masonry-->
+    <script type="text/javascript" src='{%static "assets/js/masonry.pkgd.min.js" %}'></script>
+
+    <!--Lightcase-->
+    <script type="text/javascript" src='{%static "assets/js/lightcase.js" %}'></script>
+
+    <!--modernizr-->
+    <script type="text/javascript" src='{%static "assets/js/modernizr.js" %}'></script>
+
+    <!--velocity-->
+    <script type="text/javascript" src='{%static "assets/js/velocity.min.js" %}'></script>
+
+    <!--quick-view-->
+    <script type="text/javascript" src='{%static "assets/js/quick-view.js" %}'></script>
+
+    <!--nstSlider-->
+    <script type="text/javascript" src='{%static "assets/js/jquery.nstSlider.js" %}'></script>
+    <script type="text/javascript" src='{%static "assets/js/nstfunctions.js" %}'></script>
+
+    <!--flexslider-->
+    <script type="text/javascript" src='{%static "assets/js/flexslider-min.js" %}'></script>
+    <script type="text/javascript" src='{%static "assets/js/flexfunctions.js" %}'></script>
+
+    <!--directional-->
+    <script type="text/javascript" src='{%static "assets/js/directional-hover.js" %}'></script>
+
+    <!-- Google Map -->
+
+    <!-- Custom -->
+    <script type="text/javascript" src='{%static "assets/js/custom.js" %}'></script>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,31 @@
+{% load staticfiles %}
+
+{% block content %}
+
+<!-- sponsor page end here -->
+<section id="sponsorlar" class="sponsor sponsor-six" style="background-image:url({{hack.sponsors_background_image.url}});">
+      <div class="overlay home-six-overlay" >
+        <div class="container">
+          <div class="section-header text-center">
+            <h3>SPONSORLAR</h3>
+          </div>
+
+            <div class="sponsor-item">
+              <div class="swiper-container sponsor-slider-two">
+                <div class="swiper-wrapper">
+                  {% for spon in spons %}
+                  <div class="swiper-slide">
+                    <img src={{spon.icon.url}} alt="sponsor image" class="img-responsive">
+                  </div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div><!-- sponsor-item -->
+
+
+
+        </div><!-- container -->
+      </div><!-- overlay -->
+    </section><!-- sponsor -->
+    <!-- Sponsor end here -->
+{% endblock content %}

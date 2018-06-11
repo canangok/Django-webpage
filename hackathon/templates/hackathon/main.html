@@ -1,0 +1,175 @@
+
+{% load staticfiles %}
+
+{% block content %}
+<style type="text/css" >
+#banner .banner-overlay{
+    background-color: rgba(240,36,25,.7);
+    background: -webkit-gradient(linear, left top, right top, from(rgba(240,36,25,.25)), to(rgba(248,214,21,.1)));
+    background: -webkit-linear-gradient(left, rgba(248,214,21,.4), rgba(248,214,21,.4));
+}
+
+</style>
+<!-- banner start here-->
+<section class="banner banner-seven " id="banner" style="background-image:url({{hack.background_image.url}});">
+
+  <div class="banner-overlay">
+
+    <div class="container" >
+      <div class="banner-seven-content" >
+        <div class="row">
+          <div class="col-md-12" >
+            <div><br/><br/><br/><br/>
+                      {% if messages %}
+                          {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}" >
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                            {{message}}
+                          </div>
+                          {% endfor %}
+                      {% endif %}
+            </div><!-- content-left -->
+          </div>
+
+            <!--  <div class="col-md-6 col-sm-6 col-xs-6 ">
+                <div class="content">
+                  <img src="{{hack.main_image.url}}" alt="logo" class="img-responsive hackathon-logo-tekli">
+                </div>
+             </div> -->
+
+        </div><!-- row -->
+        <div class="row">
+            <!--  <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="content">
+                  <h2>{{hack.slogan}}</h2>
+                </div>
+              </div> -->
+              <div class="col-md-6 col-sm-12 col-xs-12" >
+              <div class="seven-content-left" >
+                <div class="content" >
+                  <img  src="{{hack.main_image.url}}" alt="logo" class="img-responsive hackathon-logo-tekli">
+              </div><!-- content-left -->
+            </div>
+          </div>
+            <div class="col-md-6 col-sm-12 hidden-xs" >
+
+              <div class="seven-content-right-bg">
+
+                <div class="seven-content-right">
+                  <div class="content">
+                    <span class="counter" data-count="{{start_date.0}}">0</span>
+                    <p>{{start_date.1}} {{start_date.2}}</p>
+                    <div id="clockdiv">
+                      <div class="clock-item">
+                        <span class="days"></span>
+                        <p class="smalltext">Gün</p>
+                      </div>
+                      <div class="clock-item">
+                        <span class="hours"></span>
+                        <p class="smalltext">Saat</p>
+                      </div>
+                      <div class="clock-item">
+                        <span class="minutes"></span>
+                        <p class="smalltext">Dakika</p>
+                      </div>
+                      <div class="clock-item">
+                        <span class="seconds"></span>
+                        <p class="smalltext">Saniye</p>
+                      </div>
+                    </div>
+                  </div>
+
+                </div><!-- content-right -->
+
+              </div><!-- content-right bg -->
+            </div>
+
+            <div class="section-header text-center">
+              <h2>{{hack.slogan}}</h2>
+
+            </div>
+            </div>
+
+      </div><!-- banner-content -->
+    </div><!-- container-->
+  </div><!-- overlay -->
+</section>
+
+
+
+<!-- banner end here -->
+
+<!-- About start here -->
+<section id="hakkinda" class="about about-six padding-120">
+  <div class="container">
+    <div class="section-header text-center">
+      <h2>{{hack.title}}</h2>
+      <p><em>{{hack.date}} -{{hack.place}}</em></p>
+        <h4>Hackathon'da Neler Yapacağız?</h4>
+    </div>
+    <p>{{hack.description}}</p>
+    <ul class="about-button">
+      <li><a href="#başvuru" class="default-button">Hemen Başvur</a></li>
+    </ul>
+
+  </div><!-- container -->
+</section>
+     <script type="text/javascript" src='{%static "assets/js/my.js" %}'></script>
+<!-- About end here -->
+
+    <script>
+
+
+    function getTimeRemaining(endtime) {
+      var t = Date.parse(endtime) - Date.parse(new Date());
+      var seconds = Math.floor((t / 1000) % 60);
+      var minutes = Math.floor((t / 1000 / 60) % 60);
+      var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+      var days = Math.floor(t / (1000 * 60 * 60 * 24));
+      return {
+        'total': t,
+        'days': days,
+        'hours': hours,
+        'minutes': minutes,
+        'seconds': seconds
+      };
+    }
+
+    function initializeClock(id, endtime) {
+      var clock = document.getElementById(id);
+
+      if (endtime - new Date() < 0) {
+        clock.style.display = 'none';
+      }
+      var daysSpan = clock.querySelector('.days');
+      var hoursSpan = clock.querySelector('.hours');
+      var minutesSpan = clock.querySelector('.minutes');
+      var secondsSpan = clock.querySelector('.seconds');
+
+      function updateClock() {
+        var t = getTimeRemaining(endtime);
+
+        daysSpan.innerHTML = ('0' + t.days).slice(-2);
+        hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+        minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+        secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+        if (t.total <= 0) {
+          clearInterval(timeinterval);
+        }
+      }
+
+      updateClock();
+      var timeinterval = setInterval(updateClock, 1000);
+    }
+
+    console.log("{{hack.starting_date}}");
+    var deadline = new Date(Date.parse(new Date()) + (new Date(Date.parse("{{hack.starting_date.isoformat}}")) - new Date()));
+    initializeClock('clockdiv', deadline);
+
+
+    </script>
+
+{% endblock content %}

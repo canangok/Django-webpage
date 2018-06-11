@@ -1,0 +1,313 @@
+
+{% extends 'main/layout.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+    <!-- banner start here-->
+        <section class="banner banner-seven" >
+          <div class="banner-overlay"  style="background-image:url('{%static "images/hoa-background.png"%}');" >
+            <div class="container" >
+              <div class="banner-seven-content" >
+                <div class="row" >
+                  <div class="col-md-12" >
+                    <div><br/><br/><br/><br/>
+                              {% if messages %}
+                                  {% for message in messages %}
+                                    <div class="alert alert-{{ message.tags }}" >
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    {{message}}
+                                  </div>
+                                  {% endfor %}
+                              {% endif %}
+                    </div><!-- content-left -->
+                  </div>
+
+                </div><!-- row -->
+
+              </div><!-- banner-content -->
+
+
+            </div><!-- container-->
+          </div><!-- overlay -->
+        </section>
+        <!-- banner end here -->
+
+            <!-- About start here............ -->
+            <section id="about"  class="about about-six padding-120" style="background-image:url('{%static "images/office-photo.jpg"%}')">
+              <div class="container">
+                <div class="section-header text-center">
+                  <h2></h2>
+                  <p><em></em></p>
+                </div>
+                <div class="hero-container">
+                <h1 class="hero-content">
+                <b style="font-weight:900">HOUSE OF APPS</b>
+                BRINGS CREATIVE IDEAS ALIVE BY BRINGING ALL THE SKILLS NECESSARY TO CREATE ENTERPRISE LEVEL
+                MOBILE APPS INCLUDING USER EXPERIENCE DESIGN, CLOUD / API INTEGRATION, MOBILE SECURITY, ENGAGEMENT
+                 OPTIMIZATION AND CONTINUOUS UPDATES.
+                </h1>
+                </div>
+
+              </div><!-- container -->
+            </section>
+
+            <!-- About end here -->
+            <section class="about about-five padding-120">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-4 col-sm-12 col-xs-12">
+                    <div class="image">
+                      <img src="media/work1.png" alt="about iamge" class="img-responsive">
+                    </div>
+                  </div>
+                  <div class="col-md-8 col-sm-12 col-xs-12">
+                    <div class="content">
+                      <div class="section-header">
+                        <h2>HOUSE</h2>
+                        <p><em>OF MOBİLE</em></p>
+                      </div>
+                      <p>YOUR MOBILE APPLICATION IS YOUR BRAND IDENTITY.
+                        WORK WITH BEST EXPERTS OF MOBILE APPLICATION DEVELOPMENT TO ENSURE YOUR BRAND IS WELL
+                        REPRESENTED IN THE HIGHLY COMPETITIVE WORLD OF MOBILE APPLICATIONS.</p>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div><!-- container -->
+              <br/>
+              <div class="container">
+                    <div class="row">
+
+                      <div class="col-md-8 col-sm-12 col-xs-12">
+                        <div class="content">
+                          <div class="section-header">
+                            <h2>HOUSE</h2>
+                            <p><em>OF WEB</em></p>
+                          </div>
+                          <p>HOW CAN YOUR IDEA TURN INTO A THRIVING, SUCCESSFUL PRODUCT IN THE SEA OF FAILED PRODUCTS THAT THE WEB IS? WE GO THE EXTRA MILE THAT OTHERS DON'T AND CONCENTRATE OUR EFFORTS TO BUILD A POLISHED END PRODUCT THAT WORKS LIKE A WELL OILED MACHINE.</p>
+
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-12 col-xs-12">
+                        <div class="image">
+                          <img src="media/work3.png" alt="about iamge" class="img-responsive">
+                        </div>
+                      </div>
+                    </div>
+
+                  </div><!-- container -->
+                  <br/>
+                  <div class="container">
+                        <div class="row">
+                          <div class="col-md-4 col-sm-12 col-xs-12">
+                            <div class="image">
+                              <img src="media/work2.png" alt="about iamge" class="img-responsive">
+                            </div>
+                          </div>
+                          <div class="col-md-8 col-sm-12 col-xs-12">
+                            <div class="content">
+                              <div class="section-header">
+                                <h2>HOUSE</h2>
+                                <p><em>OF EXPERIENCE</em></p>
+                              </div>
+                              <p>JUST GETTING THINGS DONE IS SO OLD FASHIONED! SPOILED WITH EVER INCREASING NUMBER OF CHOICES, END USERS ARE SEEKING THE MOST STYLISH AND WELL-CRAFTED APPLICATIONS TO PERFORM EVEN SIMPLEST OF TASKS. USER EXPERIENCE IS THE KEY DIFFERENTIATOR AMONG STARTUPS AND CORPORATE APPLICATIONS.</p>
+
+                            </div>
+                          </div>
+                        </div>
+
+                      </div><!-- container -->
+                      <br/>
+                      <div class="container">
+                            <div class="row">
+
+                              <div class="col-md-8 col-sm-12 col-xs-12">
+                                <div class="content">
+                                  <div class="section-header">
+                                    <h2>HOUSE</h2>
+                                    <p><em>OF DIGITAL</em></p>
+                                  </div>
+                                  <p>WE ARE NOT AFRAID TO TAKE THE ROAD LESS TRAVELLED. WE STRIVE TO MAKE YOUR INNOVATIVE IDEAS INTO GROUND BREAKING APPLICATIONS. CHALLENGING PROJECTS ARE ALWAYS OUR FAVORITE.</p>
+
+                                </div>
+                              </div>
+                              <div class="col-md-4 col-sm-12 col-xs-12">
+                                <div class="image">
+                                  <img src="media/work4.png" alt="about iamge" class="img-responsive">
+                                </div>
+                              </div>
+                            </div>
+                          </div><!-- container -->
+                        </section>
+
+    <!-- Speakers start here -->
+    <section class="speakers speakers-six" >
+      <div class="overlay home-six-overlay">
+        <div class="container">
+          <div id="our" class="section-header text-center">
+            <h3>OUR REFERENCES</h3>
+
+          </div>
+
+          <div class="speaker-items">
+
+            <div class="row">
+{% for app in apps %}
+  <div class="col-md-4 col-sm-6 col-xs-12">
+   <div class="speaker-item">
+    <div class="speaker-image dh-container ">
+      <img src="{{ app.background_image.url }}"  alt="speaker image" class="img-responsive">
+        <div class="speaker-content-bg dh-overlay">
+          <div class="speaker-content">
+            <div class="content">
+              <img src="{{app.icon.url}}" style="width:70px;height:70px;margin-bottom:10px;"/>
+                <h4><a href="speaker-details.html">{{ app.title }}</a></h4>
+                  <span style="font-size:15px;">{{ app.description }}</span>
+                    <ul class="speaker-social">
+                      <li><a href="{{app.website_link}}"><i aria-hidden="true">
+                        <img src="{%static "images/website.png"%}"/></i></a></li>
+                      <li><a href="{{app.appstore_link}}"><i  aria-hidden="true">
+                        <img src="{%static "images/apple.png"%}"/></i></a></li>
+                      <li><a href="{{app.playstore_link}}"><i aria-hidden="true">
+                        <img src="{%static "images/android.png"%}"/></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+     </div>
+   </div>
+  </div>
+ {% endfor %}
+
+            </div><!-- row -->
+          </div><!-- speaker-items -->
+        </div><!-- container -->
+      </div><!-- overlay -->
+    </section>
+  <!-- Speakers end here -->
+
+    <!-- Schedules start here -->
+    <!-- Schedules end here -->
+
+
+    <!-- Sponsor start here -->
+    <!-- Sponsor end here -->
+
+
+    <!-- Travel start here -->
+    <!-- Travel end here -->
+
+
+
+    <!-- Pricing start here -->
+    <!-- Pricing end here -->
+
+
+    <!-- Blog start here -->
+    <!-- Blog end here -->
+
+
+    <!-- Gallery start here -->
+    <!-- Gallery end here -->
+
+    <!-- Map start here -->
+        <section id="map" class="home-map">
+          <div class="section-header text-center">
+            <h3>contact us</h3>
+          </div>
+          <h1 style="margin-top:40px" class="section-header"><div class="section-ruler"></div></h1>
+          <div class="map-container">
+            <iframe class="map" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?hl=en&amp;q=41.00137,29.05529&amp;ie=UTF8&amp;t=roadmap&amp;z=15&amp;iwloc=B&amp;output=embed">
+            </iframe>
+          </div>
+        </section>
+        <!-- Map end here -->
+
+        <!-- Newsletter Start here -->
+        <section class="contact padding-120">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 col-sm-12 col-xs-12">
+                {% if messages %}
+                    {% for message in messages %}
+                      <div class="alert alert-{{ message.tags }}" >
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                      {{message}}
+                    </div>
+                    {% endfor %}
+                {% endif %}
+                <div class="contact-form">
+                  <h3>Get in Touch</h3>
+
+                  <form class="col col2 contact-form" method="POST" action="send_email">
+                    {% csrf_token %}
+                      <h6>SEND US A MESSAGE</h6>
+                    <div class="row">
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" name="name" placeholder="Full Name" class="contact-input">
+                      </div>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="email" name="from_email" placeholder="Email Address" class="contact-input">
+                      </div>
+                    </div><!-- row -->
+                    <input type="text" name="subject" placeholder="Subject" class="contact-input">
+
+                    <textarea rows="5" name=message class="contact-input">Message</textarea>
+                    <input type="submit" name="submit" value="Send Message" class="contact-submit">
+                  </form>
+
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-12 col-xs-12">
+                <div class="contact-info">
+                  <h3>Contact Info</h3>
+                  <ul class="info">
+                    <li>
+                      <div class="icon flaticon-signs-1"></div>
+                      <div class="content">
+                        <p>Akasya Acıbadem B Blok B2 Giriş</p>
+                        <p>K:7 D:98 34660 Üsküdar/İSTANBUL</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="icon flaticon-adress"></div>
+                      <div class="content">
+                        <p>For all your questions about mobile and </p>
+                        <p>web development please contact us for our</p>
+                        <p>refreshing and innovative approach on</p>
+                        <p>software development and user experience.</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="icon flaticon-phone-call"></div>
+                      <div class="content">
+                        <p>+90 216 510 69 30</p>
+                        <p>+90 216 510 69 31</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="icon flaticon-message"></div>
+                      <div class="content">
+
+                        <p>info@houseofapps.com</p>
+                      </div>
+                    </li>
+                  </ul>
+
+                </div><!-- contact-info -->
+              </div>
+            </div><!-- row -->
+          </div><!-- container -->
+        </section>
+
+    <!-- Newsletter Start here -->
+    <!-- Newsletter End here -->
+
+{% endblock %}

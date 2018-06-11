@@ -1,0 +1,81 @@
+{% load staticfiles %}
+
+{% block content %}
+
+<section class="speakers speakers-six" id="committee" style="background-image:url({{hack.committee_background_image.url}});">
+  <div class="overlay home-six-overlay" id="jüri">
+    <div class="container">
+      <div class="section-header text-center ">
+        <h3 class="jury active"><div class="schedule-tabs col-12 ">
+          <a href="#day-j" aria-controls="day-j" role="tab" data-toggle="tab">JÜRİLER<span></span></a>
+        </div></h3>
+        <h3 class="mentor active"><div class="schedule-tabs col-12 ">
+        <a href="#day-m" aria-controls="day-m" role="tab" data-toggle="tab">MENTÖRLER<span></span></a>
+        </div></h3>
+
+</div>
+<div class="speaker-items">
+  <div class="row">
+  <div class="tab-content" >
+  <div role="tabpanel" class="tab-pane active" id="day-j">
+     {% for j in jury%}
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="speaker-item" id="speaker">
+          <div class="speaker-image dh-container">
+             <img src={{j.avatar.url}} alt="speaker image" class="img-responsive juri-image">
+                <div class="speaker-content-bg dh-overlay">
+                  <div class="speaker-content">
+                    <div class="content">
+                      <h4><a href="speaker-details.html">{{j.name}}</a></h4>
+                      <span>{{j.title}}</span><br/>
+                      <span>{{j.business}}</span>
+                      <ul class="speaker-social">
+                        <li><a href="{{jury.linkedin_link}}"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        <li><a href="{{jury.twitter_link}}"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    {% endfor %}
+  </div>
+              <!--  MENTÖR-->
+      <div role="tabpanel" class="tab-pane " id="day-m">
+          {% for m in mentor%}
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="speaker-item" id="speaker">
+            <div class="speaker-image dh-container">
+              <img src={{m.avatar.url}} alt="speaker image" class="img-responsive">
+              <div class="speaker-content-bg dh-overlay">
+                <div class="speaker-content">
+                  <div class="content">
+                    <h4><a href="speaker-details.html">{{m.name}}</a></h4>
+                    <span>{{m.title}}</span><br/>
+                    <span>{{m.business}}</span>
+                    <ul class="speaker-social">
+                      <li><a href="{{mentor.linkedin_link}}"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                      <li><a href="{{mentor.twitter_link}}"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    </ul>
+                  </div>
+                </div><!-- speaker-content -->
+              </div><!-- speaker-content-bg -->
+            </div><!-- speaker-image -->
+          </div><!-- speaker-item -->
+          </div>
+          {% endfor %}
+        </div>
+        </div>
+
+          </div>
+
+        </div><!-- row -->
+      </div><!-- speaker-items -->
+    </div><!-- container -->
+  </div><!-- overlay -->
+</section>
+
+
+
+{% endblock content %}

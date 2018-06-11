@@ -1,0 +1,37 @@
+{% load staticfiles %}
+{% block content %}
+
+
+
+
+<section class="speaker-details padding-120" id="ödüller">
+
+<div class="container">
+  <div class="section-header text-center">
+    <h3>ÖDÜLLER</h3>
+  </div>
+  <br/><br/>
+<div class="row">
+  {% for p in prize %}
+  <div class="col-md-4 col-sm-6 col-xs-12">
+    <div class="speaker-award"><!-- speaker-award -->
+      <div class="pricing-item-{{p.order}}">
+          <img src={{p.icon.url}} alt="award image" class="img-responsive ">
+          <div class="pricing-header">
+              <h3 class="name">{{p.order}}.TAKIM</h3><br/>
+              <h3 class="name">{{p.name}} TL</h3>
+          </div>
+        </div>
+    </div>
+  </div>
+  {% endfor %}
+
+  </div>
+
+</div><br/>
+<p style="text-align: center; font-size: 22px;"><!--Açıklama --></p>
+</div><!-- container -->
+</section><!-- speaker-details -->
+
+
+{% endblock content %}

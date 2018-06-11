@@ -1,0 +1,89 @@
+{% load staticfiles %}
+{% block content %}
+
+<section id="program" class="schedules schedules-six padding-120">
+<div class="container">
+  <div class="section-header text-center">
+    <h3>Program</h3>
+  </div>
+  <div class="schedule-tabs">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      {% for d in days %}
+      <li role="presentation"><a href="#day-{{d.day}}" aria-controls="day-{{d.day}}" role="tab" data-toggle="tab">
+        {{d.day}}.gün
+        <span></span>
+      </a></li>
+        {% endfor %}
+    </ul>
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="day-1">
+        <div class="schedule-table table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th class="time">Zaman</th>
+                <th class="session">Oturum</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for p in first_prog %}
+              <tr>
+                <td class="time"><span><i class="fa fa-clock-o" aria-hidden="true"></i></span> {{p.time_interval}}</td>
+                <td class="session"><span><i class="fa fa-list-alt" aria-hidden="true"></i></span> {{p.title}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div><!-- schedule-table -->
+      </div>
+      <div role="tabpanel" class="tab-pane" id="day-2">
+        <div class="schedule-table table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th class="time">Zaman</th>
+                <th class="session">Oturum</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for p in second_prog %}
+              <tr>
+                <td class="time"><span><i class="fa fa-clock-o" aria-hidden="true"></i></span>{{p.time_interval}}</td>
+                <td class="session"><span><i class="fa fa-list-alt" aria-hidden="true"></i></span>{{p.title}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="day-3">
+        <div class="schedule-table table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th class="time">Zaman</th>
+                <th class="session">Oturum</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for p in third_prog %}
+              <tr>
+                <td class="time"><span><i class="fa fa-clock-o" aria-hidden="true"></i></span>{{p.time_interval}}</td>
+                <td class="session"><span><i class="fa fa-list-alt" aria-hidden="true"></i></span>{{p.title}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div><!-- container -->
+</section><!-- schedules -->
+
+  <!-- Sponsor start here -->
+
+
+{% endblock content %}

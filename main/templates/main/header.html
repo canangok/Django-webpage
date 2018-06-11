@@ -1,0 +1,43 @@
+{% load staticfiles %}
+
+{% block content %}
+<header class="header-six">
+<nav class="main-menu menu-six menu-fixed">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#home"><img src={%static "images/houseofapps.png"%} style="max-width=100%;height:80px;margin-top:-25px;" alt="logo" class="img-responsive"></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown active">
+          <a href="#about" class="dropdown-toggle" role="button">  WHO WE ARE</a>
+
+        </li>
+        <li class="dropdown">
+          <a href="#our"   role="button">OUR REFERENCES</span></a>
+
+        </li>
+        <li class="dropdown">
+          <a href="#map"  class="dropdown-toggle" role="button" >CONTACT US</span></a>
+
+        </li>
+        <li><a href="https://medium.com/house-of-apps">BLOG</a></li>
+        </ul>
+
+    </div><!-- /.navbar-collapse -->
+
+  </div><!-- /.container -->
+</nav>
+</header>
+
+{% endblock content %}

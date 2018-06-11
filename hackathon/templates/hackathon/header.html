@@ -1,0 +1,42 @@
+{% load staticfiles %}
+
+{% block content %}
+<style type="text/css">
+#header .menu-six {
+    background: rgba(232,175,58,.2);
+  }
+#header .menu-six-bg {
+  background-color:#{{hack.color}};
+}
+
+
+</style>
+
+<header class="header-six" id="header">
+  <nav class="main-menu menu-six menu-fixed">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/hackathon">
+          <img src={{hack.icon.url}} style="margin-top:-20px;"alt="logo" class="img-responsive"></a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+        {%for nav in navs%}
+        <li class="dropdown active">
+          <a href="#{{nav.name}}"  role="button" aria-expanded="false">{{ nav.name}}<span></span></a>
+        </li>
+        {%endfor%}
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container -->
+  </nav>
+</header>
+
+
+{% endblock content %}

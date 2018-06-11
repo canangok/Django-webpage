@@ -1,0 +1,61 @@
+{% load staticfiles %}
+
+{% block content %}
+
+<section class="product padding-120" id="sss">
+        <div class="container">
+           <div class="section-header text-center">
+              <h3>SIK SORULAN SORULAR</h3>
+            </div>
+
+            <div class="product-sidebar-bg" >
+              {% for s in sss %}
+
+
+
+
+
+                  <div class="pro-categories" style="margin-bottom:-15px;border-radius:5px;">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" >
+
+                      <div class="panel panel-default" >
+                        <div class="panel-heading" role="tab" id="heading{{s.id}}">
+                          <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{s.order}}" aria-expanded="true" aria-controls="collapse{{s.order}}">
+                            <b>{{s.question}}</b>
+
+                            </a>
+                          </h4>
+                        </div>
+
+                        <div id="collapse{{s.order}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{s.id}}">
+                          <div class="panel-body">
+                            <a href="#">{{s.answer}}</a>
+
+                          </div>
+                        </div>
+                      </div>
+
+
+
+                    </div>
+                  </div><!-- pro categories -->
+
+
+
+
+              {% endfor%}
+            </div>
+
+          </div>
+          </div>
+</section >
+<section class="blog-page padding-110" id="teknolojİler">
+  <div class="overlay home-six-overlay">
+
+
+  </div><!-- container -->
+</section><!-- blog -->
+<hr/>
+
+{% endblock content %}

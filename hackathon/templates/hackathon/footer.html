@@ -1,0 +1,27 @@
+{% load staticfiles %}
+
+{% block content %}
+
+<!-- Footer Start here -->
+<style type="text/css">
+</style>
+
+<footer class="footer-six" id="footer" style="background-image:url({{hack.footer_background_image.url}});" >
+  <div class="overlay home-six-overlay" >
+    <div class="container">
+      <h2>{{hack.footer_title}}</h2>
+      <ul class="event-social">
+        <li><a href="{{hack.footer_social_facebook}}"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        <li><a href="{{hack.footer_social_twitter}}"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        <li></li>
+
+      </ul>
+
+        <img src={%static "images/sponsors/fiat.png" %} style="margin:0 auto;" alt="sponsor image" class="img-responsive">
+
+    </div>
+  </div>
+</footer>
+<!-- Footer End here -->
+
+{% endblock content %}
